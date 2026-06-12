@@ -43,7 +43,7 @@ const Login = () => {
             console.log("Retorno da API");
             console.log(retornoAPI.data);
 
-            const token = retornoAPI.data
+            const token = retornoAPI.data.token
             const usuarioDecoded = jwtDecode(token)
             console.log(usuarioDecoded);
 
@@ -51,7 +51,7 @@ const Login = () => {
             localStorage.setItem("usuario", JSON.stringify(email))
             setEmail("")
 
-            navigate("/generos")
+            navigate("/veiculos")
 
         } catch (error) {
             Alerta({
@@ -70,7 +70,7 @@ const Login = () => {
 
         if (logado != undefined && logado != null) {
             setUsuario(JSON.parse(logado))
-            navigate("/generos")
+            navigate("/veiculos")
         }
     };
 
@@ -83,7 +83,7 @@ const Login = () => {
         <main className="main_login">
             <div className="banner"></div>
             <section className="section_login">
-                <img src={Logo} alt="Logo do Filmoteca" />
+                <img src={Logo} alt="Logo do Projeto" />
                 <form action="" className="form_login" onSubmit={LoginEmail}>
                     <h1>Login</h1>
                     <div className="campos_login">

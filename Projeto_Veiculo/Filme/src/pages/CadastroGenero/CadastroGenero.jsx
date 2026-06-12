@@ -1,12 +1,11 @@
-import "./CadastroGenero.css";
-import Header from "../../components/header/Header";
-import Footer from "../../components/footer/Footer";
-import Cadastro from "../../components/cadastro/Cadastro";
-import Lista from "../../components/lista/Lista";
 import { useEffect, useState } from "react";
 import api from "../../services/Services";
 import Swal from "sweetalert2";
 import Alerta from "../../components/alerta/Alerta";
+import Header from "../../components/header/Header";
+import Footer from "../../components/footer/Footer";
+import Cadastro from "../../components/cadastro/Cadastro";
+import Lista from "../../components/lista/Lista";
 
 const CadastroGenero = () => {
   const [valor, setValor] = useState("");
@@ -165,7 +164,6 @@ const CadastroGenero = () => {
       <Header />
       <main>
         <Cadastro
-          // Troca o título visualmente de forma dinâmica quando estiver editando
           tituloCadastro="Cadastro de Gênero"
           visibilidade="none"
           placeholder="gênero"
