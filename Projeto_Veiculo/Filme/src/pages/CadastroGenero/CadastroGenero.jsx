@@ -163,6 +163,38 @@ const CadastroGenero = () => {
     <>
       <Header />
       <main>
+        {/* Seção Hero Simplificada para Categorias */}
+        <section className="hero-section" style={{ padding: "3rem 0 2rem" }}>
+          <div className="layout_grid hero-content">
+            <h2 className="hero-title" style={{ fontSize: "2.5rem" }}>Categorias de Veículos</h2>
+            <p className="hero-subtitle">
+              Organize e classifique o catálogo de automóveis para uma melhor experiência do usuário.
+            </p>
+          </div>
+        </section>
+
+        {/* Seção de Estatísticas para Categorias */}
+        <section className="stats-section">
+          <div className="layout_grid stats-grid">
+            <div className="stat-card">
+              <span className="stat-value">{listaGeneros.length}</span>
+              <span className="stat-label">Categorias Cadastradas</span>
+            </div>
+            <div className="stat-card">
+              <span className="stat-value">3</span>
+              <span className="stat-label">Usuários Ativos</span>
+            </div>
+            <div className="stat-card">
+              <span className="stat-value">{listaGeneros.length}</span>
+              <span className="stat-label">Registros Ativos</span>
+            </div>
+            <div className="stat-card">
+              <span className="stat-value">Premium</span>
+              <span className="stat-label">Foco de Mercado</span>
+            </div>
+          </div>
+        </section>
+
         <Cadastro
           tituloCadastro="Cadastro de Gênero"
           visibilidade="none"

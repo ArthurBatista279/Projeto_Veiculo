@@ -265,6 +265,66 @@
         "IsRequired": false
       },
       {
+        "Name": "Marca",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Modelo",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Ano",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "Preco",
+        "Type": "System.Nullable\u00601[[System.Decimal, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "Cor",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Quilometragem",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "Combustivel",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Cambio",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "NumeroPortas",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "Potencia",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "CapacidadePassageiros",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "Descricao",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
         "Name": "Imagem",
         "Type": "Microsoft.AspNetCore.Http.IFormFile",
         "IsRequired": false
@@ -273,22 +333,6 @@
         "Name": "IdGenero",
         "Type": "System.Nullable\u00601[[System.Guid, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
         "IsRequired": false
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "FilmesMoura.WebAPI.Controllers.VeiculoController",
-    "Method": "Put",
-    "RelativePath": "api/veiculos",
-    "HttpMethod": "PUT",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "veiculo",
-        "Type": "FilmesMoura.WebAPI.Models.Veiculo",
-        "IsRequired": true
       }
     ],
     "ReturnTypes": []
@@ -324,6 +368,66 @@
       },
       {
         "Name": "Nome",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Marca",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Modelo",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Ano",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "Preco",
+        "Type": "System.Nullable\u00601[[System.Decimal, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "Cor",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Quilometragem",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "Combustivel",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Cambio",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "NumeroPortas",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "Potencia",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "CapacidadePassageiros",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "Descricao",
         "Type": "System.String",
         "IsRequired": false
       },

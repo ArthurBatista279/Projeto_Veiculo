@@ -3,16 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\54534361823\\Desktop\\Projeto_Veiculo\\ProjetoVeiculo\\FilmesMoura.WebAPI\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{00C3BC05-6C36-E97A-9F1C-9FC607DE49C8}|FilmesMoura.WebAPI\\FilmesMoura.WebAPI.csproj|c:\\users\\54534361823\\desktop\\projeto_veiculo\\projetoveiculo\\filmesmoura.webapi\\filmesmoura.webapi\\dto\\veiculodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{00C3BC05-6C36-E97A-9F1C-9FC607DE49C8}|FilmesMoura.WebAPI\\FilmesMoura.WebAPI.csproj|solutionrelative:filmesmoura.webapi\\dto\\veiculodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{00C3BC05-6C36-E97A-9F1C-9FC607DE49C8}|FilmesMoura.WebAPI\\FilmesMoura.WebAPI.csproj|c:\\users\\54534361823\\desktop\\projeto_veiculo\\projetoveiculo\\filmesmoura.webapi\\filmesmoura.webapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{00C3BC05-6C36-E97A-9F1C-9FC607DE49C8}|FilmesMoura.WebAPI\\FilmesMoura.WebAPI.csproj|solutionrelative:filmesmoura.webapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{00C3BC05-6C36-E97A-9F1C-9FC607DE49C8}|FilmesMoura.WebAPI\\FilmesMoura.WebAPI.csproj|c:\\users\\54534361823\\desktop\\projeto_veiculo\\projetoveiculo\\filmesmoura.webapi\\filmesmoura.webapi\\controllers\\veiculocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{00C3BC05-6C36-E97A-9F1C-9FC607DE49C8}|FilmesMoura.WebAPI\\FilmesMoura.WebAPI.csproj|solutionrelative:filmesmoura.webapi\\controllers\\veiculocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{00C3BC05-6C36-E97A-9F1C-9FC607DE49C8}|FilmesMoura.WebAPI\\FilmesMoura.WebAPI.csproj|c:\\users\\54534361823\\desktop\\projeto_veiculo\\projetoveiculo\\filmesmoura.webapi\\filmesmoura.webapi\\dto\\logindto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{00C3BC05-6C36-E97A-9F1C-9FC607DE49C8}|FilmesMoura.WebAPI\\FilmesMoura.WebAPI.csproj|solutionrelative:filmesmoura.webapi\\dto\\logindto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{00C3BC05-6C36-E97A-9F1C-9FC607DE49C8}|FilmesMoura.WebAPI\\FilmesMoura.WebAPI.csproj|c:\\users\\54534361823\\desktop\\projeto_veiculo\\projetoveiculo\\filmesmoura.webapi\\filmesmoura.webapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{00C3BC05-6C36-E97A-9F1C-9FC607DE49C8}|FilmesMoura.WebAPI\\FilmesMoura.WebAPI.csproj|solutionrelative:filmesmoura.webapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -27,6 +31,19 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "VeiculoDTO.cs",
+              "DocumentMoniker": "C:\\Users\\54534361823\\Desktop\\Projeto_Veiculo\\ProjetoVeiculo\\FilmesMoura.WebAPI\\FilmesMoura.WebAPI\\DTO\\VeiculoDTO.cs",
+              "RelativeDocumentMoniker": "FilmesMoura.WebAPI\\DTO\\VeiculoDTO.cs",
+              "ToolTip": "C:\\Users\\54534361823\\Desktop\\Projeto_Veiculo\\ProjetoVeiculo\\FilmesMoura.WebAPI\\FilmesMoura.WebAPI\\DTO\\VeiculoDTO.cs",
+              "RelativeToolTip": "FilmesMoura.WebAPI\\DTO\\VeiculoDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-12T16:17:52.026Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "VeiculoController.cs",
               "DocumentMoniker": "C:\\Users\\54534361823\\Desktop\\Projeto_Veiculo\\ProjetoVeiculo\\FilmesMoura.WebAPI\\FilmesMoura.WebAPI\\Controllers\\VeiculoController.cs",
               "RelativeDocumentMoniker": "FilmesMoura.WebAPI\\Controllers\\VeiculoController.cs",
@@ -39,7 +56,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "LoginDTO.cs",
               "DocumentMoniker": "C:\\Users\\54534361823\\Desktop\\Projeto_Veiculo\\ProjetoVeiculo\\FilmesMoura.WebAPI\\FilmesMoura.WebAPI\\DTO\\LoginDTO.cs",
               "RelativeDocumentMoniker": "FilmesMoura.WebAPI\\DTO\\LoginDTO.cs",
@@ -51,15 +68,16 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\54534361823\\Desktop\\Projeto_Veiculo\\ProjetoVeiculo\\FilmesMoura.WebAPI\\FilmesMoura.WebAPI\\Program.cs",
               "RelativeDocumentMoniker": "FilmesMoura.WebAPI\\Program.cs",
               "ToolTip": "C:\\Users\\54534361823\\Desktop\\Projeto_Veiculo\\ProjetoVeiculo\\FilmesMoura.WebAPI\\FilmesMoura.WebAPI\\Program.cs",
               "RelativeToolTip": "FilmesMoura.WebAPI\\Program.cs",
-              "ViewState": "AgIAAEsAAAAAAAAAAAAnwFkAAAAnAAAAAAAAAA==",
+              "ViewState": "AgIAACoAAAAAAAAAAAAnwFkAAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-20T16:21:24.142Z"
+              "WhenOpened": "2026-05-20T16:21:24.142Z",
+              "EditorCaption": ""
             }
           ]
         }

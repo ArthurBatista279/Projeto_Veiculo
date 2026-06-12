@@ -1,8 +1,446 @@
-/* Estilos para a página CadastroVeiculo */
-main {
-    min-height: calc(100vh - 160px);
+/* ===================================================
+   CadastroVeiculo.css — Gerenciamento de Veículos
+   =================================================== */
+
+.main_cv {
+    background-color: var(--color-bg-main);
+    min-height: 100vh;
+    padding-top: 75px;
+}
+
+/* ── Seção do Formulário ── */
+.cv_form_section {
+    padding: 3rem 0 2rem;
+    background: linear-gradient(180deg, var(--color-bg-deep) 0%, var(--color-bg-main) 100%);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.cv_form_header {
+    margin-bottom: 2rem;
+}
+
+.cv_form_header h1 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--color-text-primary);
+    margin-bottom: 0.5rem;
+}
+
+.cv_form_header p {
+    color: var(--color-text-secondary);
+    font-size: 0.95rem;
+}
+
+/* ── Formulário ── */
+.cv_form {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
-    padding-bottom: 3rem;
+    gap: 1.5rem;
 }
+
+.cv_fieldset {
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+    background-color: var(--color-bg-card);
+    transition: border-color var(--transition-fast);
+}
+
+.cv_fieldset:focus-within {
+    border-color: rgba(0, 102, 204, 0.4);
+}
+
+.cv_fieldset legend {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-weight: 700;
+    color: var(--color-primary-hover);
+    padding: 0 0.5rem;
+}
+
+/* Grids do formulário */
+.cv_grid {
+    display: grid;
+    gap: 1.25rem;
+}
+
+.cv_grid_2 { grid-template-columns: repeat(2, 1fr); }
+.cv_grid_3 { grid-template-columns: repeat(3, 1fr); }
+
+@media (max-width: 900px) {
+    .cv_grid_3 { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+    .cv_grid_2, .cv_grid_3 { grid-template-columns: 1fr; }
+}
+
+/* ── Campos ── */
+.cv_campo {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.cv_campo label {
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: var(--color-text-secondary);
+}
+
+.cv_campo input,
+.cv_campo select,
+.cv_campo textarea {
+    background-color: var(--color-bg-input);
+    border: 1px solid var(--color-border);
+    color: var(--color-text-primary);
+    border-radius: var(--radius-md);
+    padding: 0.75rem 1rem;
+    width: 100%;
+    outline: none;
+    transition: var(--transition-fast);
+    font-size: 0.95rem;
+}
+
+.cv_campo input:focus,
+.cv_campo select:focus,
+.cv_campo textarea:focus {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.2);
+    background-color: rgba(0, 102, 204, 0.03);
+}
+
+.cv_campo select {
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23909bb0' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.75rem center;
+    background-size: 1.1em;
+    padding-right: 2.5rem;
+    cursor: pointer;
+}
+
+.cv_campo select option {
+    background-color: var(--color-bg-card);
+}
+
+.cv_campo textarea {
+    resize: vertical;
+    min-height: 120px;
+    line-height: 1.6;
+}
+
+/* ── Upload de Imagem ── */
+.cv_upload_area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    border: 2px dashed var(--color-border);
+    border-radius: var(--radius-md);
+    padding: 1.5rem;
+    cursor: pointer;
+    min-height: 150px;
+    transition: var(--transition-fast);
+    color: var(--color-text-secondary);
+    font-size: 0.875rem;
+    text-align: center;
+    background-color: var(--color-bg-input);
+}
+
+.cv_upload_area:hover {
+    border-color: var(--color-primary);
+    background-color: rgba(0, 102, 204, 0.04);
+    color: var(--color-text-primary);
+}
+
+.cv_upload_icon { font-size: 2rem; }
+
+.cv_img_preview {
+    position: relative;
+    width: 100%;
+    height: 160px;
+}
+
+.cv_img_preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: var(--radius-sm);
+}
+
+.cv_remove_img {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    background-color: var(--color-danger);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 28px;
+    height: 28px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ── Botões de Ação ── */
+.cv_actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    padding-top: 0.5rem;
+}
+
+.cv_btn_salvar {
+    background: linear-gradient(135deg, var(--color-primary), #004d99);
+    color: white;
+    border: none;
+    padding: 0.875rem 2rem;
+    border-radius: var(--radius-md);
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: var(--transition-fast);
+    box-shadow: 0 4px 15px rgba(0, 102, 204, 0.4);
+}
+
+.cv_btn_salvar:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 102, 204, 0.5);
+}
+
+.cv_btn_cancelar {
+    background-color: transparent;
+    color: var(--color-text-secondary);
+    border: 1px solid var(--color-border);
+    padding: 0.875rem 1.5rem;
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition-fast);
+}
+
+.cv_btn_cancelar:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.2);
+    color: var(--color-text-primary);
+}
+
+/* ── Seção da Lista ── */
+.cv_lista_section {
+    padding: 3rem 0 4rem;
+}
+
+.cv_lista_header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.cv_lista_header h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-text-primary);
+}
+
+.cv_count_badge {
+    background-color: var(--color-primary);
+    color: white;
+    font-size: 0.8rem;
+    font-weight: 700;
+    padding: 2px 10px;
+    border-radius: 999px;
+}
+
+/* ── Cards Grid ── */
+.cv_cards_grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.cv_card {
+    background-color: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: var(--transition-normal);
+}
+
+.cv_card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(0, 102, 204, 0.3);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+}
+
+.cv_card_img {
+    height: 180px;
+    background-color: #111317;
+    position: relative;
+    overflow: hidden;
+}
+
+.cv_card_img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition-slow);
+}
+
+.cv_card:hover .cv_card_img img {
+    transform: scale(1.06);
+}
+
+.cv_card_no_img {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-text-secondary);
+    background: radial-gradient(circle, #252a35 0%, #111317 100%);
+}
+
+.cv_card_badge {
+    position: absolute;
+    top: 0.75rem;
+    left: 0.75rem;
+    background-color: rgba(0, 102, 204, 0.85);
+    backdrop-filter: blur(8px);
+    color: white;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 999px;
+}
+
+.cv_card_body {
+    padding: 1.25rem;
+    flex: 1;
+}
+
+.cv_card_body h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--color-text-primary);
+    margin-bottom: 0.75rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.cv_card_specs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.cv_card_specs span {
+    font-size: 0.8rem;
+    color: var(--color-text-secondary);
+    background-color: rgba(255,255,255,0.04);
+    border: 1px solid var(--color-border);
+    padding: 2px 8px;
+    border-radius: var(--radius-sm);
+}
+
+.cv_card_specs .cv_preco {
+    color: var(--color-success);
+    font-weight: 700;
+    border-color: rgba(16, 185, 129, 0.3);
+    background-color: rgba(16, 185, 129, 0.08);
+}
+
+.cv_card_detail {
+    font-size: 0.8rem;
+    color: var(--color-text-secondary);
+    margin-top: 0.25rem;
+}
+
+.cv_card_actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+    padding: 1rem 1.25rem;
+    border-top: 1px solid var(--color-border);
+}
+
+.cv_btn_edit {
+    background-color: rgba(0, 102, 204, 0.1);
+    border: 1px solid rgba(0, 102, 204, 0.3);
+    color: var(--color-primary-hover);
+    padding: 0.6rem;
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: var(--transition-fast);
+}
+
+.cv_btn_edit:hover {
+    background-color: var(--color-primary);
+    border-color: var(--color-primary);
+    color: white;
+    transform: translateY(-1px);
+}
+
+.cv_btn_delete {
+    background-color: rgba(239, 68, 68, 0.08);
+    border: 1px solid rgba(239, 68, 68, 0.25);
+    color: #fca5a5;
+    padding: 0.6rem;
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: var(--transition-fast);
+}
+
+.cv_btn_delete:hover {
+    background-color: var(--color-danger);
+    border-color: var(--color-danger);
+    color: white;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+}
+
+/* ── Skeleton Loading ── */
+.cv_skeleton_grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.cv_skeleton_card {
+    height: 320px;
+    border-radius: var(--radius-lg);
+    background: linear-gradient(90deg, var(--color-bg-card) 25%, rgba(255,255,255,0.04) 50%, var(--color-bg-card) 75%);
+    background-size: 200% 100%;
+    animation: skeleton_loading 1.5s infinite;
+}
+
+@keyframes skeleton_loading {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
+
+/* ── Empty State ── */
+.cv_empty {
+    text-align: center;
+    padding: 4rem 2rem;
+    color: var(--color-text-secondary);
+}
+
+.cv_empty span { font-size: 3rem; display: block; margin-bottom: 1rem; }
+.cv_empty p { font-size: 1.1rem; }

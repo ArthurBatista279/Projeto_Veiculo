@@ -42,6 +42,18 @@ namespace FilmesMoura.WebAPI.Repository
                 if (veiculoBuscado != null)
                 {
                     veiculoBuscado.Nome = veiculoAtualizado.Nome;
+                    veiculoBuscado.Marca = veiculoAtualizado.Marca;
+                    veiculoBuscado.Modelo = veiculoAtualizado.Modelo;
+                    veiculoBuscado.Ano = veiculoAtualizado.Ano;
+                    veiculoBuscado.Preco = veiculoAtualizado.Preco;
+                    veiculoBuscado.Cor = veiculoAtualizado.Cor;
+                    veiculoBuscado.Quilometragem = veiculoAtualizado.Quilometragem;
+                    veiculoBuscado.Combustivel = veiculoAtualizado.Combustivel;
+                    veiculoBuscado.Cambio = veiculoAtualizado.Cambio;
+                    veiculoBuscado.NumeroPortas = veiculoAtualizado.NumeroPortas;
+                    veiculoBuscado.Potencia = veiculoAtualizado.Potencia;
+                    veiculoBuscado.CapacidadePassageiros = veiculoAtualizado.CapacidadePassageiros;
+                    veiculoBuscado.Descricao = veiculoAtualizado.Descricao;
                     veiculoBuscado.IdGenero = veiculoAtualizado.IdGenero;
                     veiculoBuscado.Imagem = veiculoAtualizado.Imagem;
                     _context.Veiculos.Update(veiculoBuscado);

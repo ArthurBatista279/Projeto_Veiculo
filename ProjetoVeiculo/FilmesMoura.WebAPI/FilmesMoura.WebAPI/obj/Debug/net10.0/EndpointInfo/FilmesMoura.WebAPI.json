@@ -437,6 +437,47 @@
                   "Nome": {
                     "type": "string"
                   },
+                  "Marca": {
+                    "type": "string"
+                  },
+                  "Modelo": {
+                    "type": "string"
+                  },
+                  "Ano": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Preco": {
+                    "type": "number",
+                    "format": "double"
+                  },
+                  "Cor": {
+                    "type": "string"
+                  },
+                  "Quilometragem": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Combustivel": {
+                    "type": "string"
+                  },
+                  "Cambio": {
+                    "type": "string"
+                  },
+                  "NumeroPortas": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Potencia": {
+                    "type": "string"
+                  },
+                  "CapacidadePassageiros": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Descricao": {
+                    "type": "string"
+                  },
                   "Imagem": {
                     "type": "string",
                     "format": "binary"
@@ -451,41 +492,48 @@
                 "Nome": {
                   "style": "form"
                 },
+                "Marca": {
+                  "style": "form"
+                },
+                "Modelo": {
+                  "style": "form"
+                },
+                "Ano": {
+                  "style": "form"
+                },
+                "Preco": {
+                  "style": "form"
+                },
+                "Cor": {
+                  "style": "form"
+                },
+                "Quilometragem": {
+                  "style": "form"
+                },
+                "Combustivel": {
+                  "style": "form"
+                },
+                "Cambio": {
+                  "style": "form"
+                },
+                "NumeroPortas": {
+                  "style": "form"
+                },
+                "Potencia": {
+                  "style": "form"
+                },
+                "CapacidadePassageiros": {
+                  "style": "form"
+                },
+                "Descricao": {
+                  "style": "form"
+                },
                 "Imagem": {
                   "style": "form"
                 },
                 "IdGenero": {
                   "style": "form"
                 }
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      },
-      "put": {
-        "tags": [
-          "Veiculo"
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/Veiculo"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/Veiculo"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/Veiculo"
               }
             }
           }
@@ -543,6 +591,47 @@
                   "Nome": {
                     "type": "string"
                   },
+                  "Marca": {
+                    "type": "string"
+                  },
+                  "Modelo": {
+                    "type": "string"
+                  },
+                  "Ano": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Preco": {
+                    "type": "number",
+                    "format": "double"
+                  },
+                  "Cor": {
+                    "type": "string"
+                  },
+                  "Quilometragem": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Combustivel": {
+                    "type": "string"
+                  },
+                  "Cambio": {
+                    "type": "string"
+                  },
+                  "NumeroPortas": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Potencia": {
+                    "type": "string"
+                  },
+                  "CapacidadePassageiros": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Descricao": {
+                    "type": "string"
+                  },
                   "Imagem": {
                     "type": "string",
                     "format": "binary"
@@ -555,6 +644,42 @@
               },
               "encoding": {
                 "Nome": {
+                  "style": "form"
+                },
+                "Marca": {
+                  "style": "form"
+                },
+                "Modelo": {
+                  "style": "form"
+                },
+                "Ano": {
+                  "style": "form"
+                },
+                "Preco": {
+                  "style": "form"
+                },
+                "Cor": {
+                  "style": "form"
+                },
+                "Quilometragem": {
+                  "style": "form"
+                },
+                "Combustivel": {
+                  "style": "form"
+                },
+                "Cambio": {
+                  "style": "form"
+                },
+                "NumeroPortas": {
+                  "style": "form"
+                },
+                "Potencia": {
+                  "style": "form"
+                },
+                "CapacidadePassageiros": {
+                  "style": "form"
+                },
+                "Descricao": {
                   "style": "form"
                 },
                 "Imagem": {
@@ -687,36 +812,6 @@
           },
           "email": {
             "maxLength": 256,
-            "minLength": 0,
-            "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "Veiculo": {
-        "type": "object",
-        "properties": {
-          "idVeiculos": {
-            "maxLength": 40,
-            "minLength": 0,
-            "type": "string",
-            "nullable": true
-          },
-          "nome": {
-            "maxLength": 100,
-            "minLength": 0,
-            "type": "string",
-            "nullable": true
-          },
-          "imagem": {
-            "maxLength": 100,
-            "minLength": 0,
-            "type": "string",
-            "nullable": true
-          },
-          "idGenero": {
-            "maxLength": 40,
             "minLength": 0,
             "type": "string",
             "nullable": true

@@ -1,9 +1,9 @@
 import "./Login.css"
 import Botao from "../../components/botao/Botao"
-import Logo from "../../assets/img/logo.svg"
+import Logo from "../../assets/Diseno-sin-titulo-22-e1768576968289.webp"
 import { useContext, useEffect, useState } from "react"
 import { UsuarioContext } from "../../context/UsuarioContext"
-import { useNavigate } from "react-router-dom"
+import { useNavigate, Link } from "react-router-dom"
 import { Alerta } from "../../components/alerta/Alerta"
 import api from "../../services/Services"
 import { jwtDecode } from "jwt-decode"
@@ -47,8 +47,15 @@ const Login = () => {
             const usuarioDecoded = jwtDecode(token)
             console.log(usuarioDecoded);
 
-            setUsuario(email)
-            localStorage.setItem("usuario", JSON.stringify(email))
+            // Mock do Perfil: se o email contiver 'gerente' ou 'admin', vira Gerente, senão Usuário Padrão.
+            const perfilAtribuido = email.toLowerCase().includes('gerente') || email.toLowerCase().includes('admin') 
+                ? 'Gerente' 
+                : 'Usuario';
+
+            const usuarioObj = { email: email, perfil: perfilAtribuido };
+
+            setUsuario(usuarioObj)
+            localStorage.setItem("usuario", JSON.stringify(usuarioObj))
             setEmail("")
 
             navigate("/veiculos")
@@ -101,6 +108,11 @@ const Login = () => {
                         </div>
                     </div>
                     <Botao nomeDoBotao="Entrar" />
+                    
+                    <div style={{ marginTop: "1.5rem", textAlign: "center" }}>
+                        <span style={{ color: "var(--color-text-secondary)", fontSize: "0.9rem" }}>Ainda não tem uma conta? </span>
+                        <Link to="/cadastro" style={{ color: "var(--color-primary-hover)", fontSize: "0.9rem", fontWeight: "bold" }}>Cadastre-se aqui</Link>
+                    </div>
                 </form>
             </section>
         </main>

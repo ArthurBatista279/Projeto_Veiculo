@@ -1,0 +1,158 @@
+.main_vitrine {
+    background-color: #ebebeb; /* Cor de fundo característica do Mercado Livre */
+    color: #333;
+    padding-top: 100px; /* Para descer abaixo do header fixo */
+    padding-bottom: 60px;
+    font-family: 'Proxima Nova', -apple-system, 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;
+    min-height: 100vh;
+}
+
+.vitrine_container_com_sidebar {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    gap: 24px;
+    max-width: 1200px;
+}
+
+.sidebar_filtros {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 1px 2px 0 rgba(0,0,0,.12);
+    height: fit-content;
+    position: sticky;
+    top: 100px;
+}
+
+.sidebar_filtros h3 {
+    margin-bottom: 20px;
+    color: #333;
+    font-size: 18px;
+    border-bottom: 1px solid #ebebeb;
+    padding-bottom: 10px;
+}
+
+.filtro_grupo {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.filtro_grupo label {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 8px;
+}
+
+.input_filtro, .select_filtro {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    color: #333;
+    background-color: #fff;
+}
+
+.input_filtro:focus, .select_filtro:focus {
+    outline: none;
+    border-color: #3483fa; /* Azul ML */
+}
+
+.vitrine_title {
+    font-size: 24px;
+    font-weight: 300;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.ml_grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(224px, 1fr));
+    gap: 16px;
+}
+
+.ml_card {
+    background-color: #ffffff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 1px 2px 0 rgba(0,0,0,.12);
+    transition: box-shadow 0.2s ease-in-out;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+}
+
+.ml_card:hover {
+    box-shadow: 0 8px 24px 0 rgba(0,0,0,.12);
+}
+
+.ml_card_img_container {
+    width: 100%;
+    height: 224px;
+    border-bottom: 1px solid #ebebeb;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f7f7f7;
+}
+
+.ml_card_img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.ml_no_img {
+    color: #cccccc;
+    font-size: 14px;
+}
+
+.ml_card_info {
+    padding: 20px 16px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.ml_card_price {
+    font-size: 24px;
+    color: #333333;
+    line-height: 1.25;
+    margin-bottom: 4px;
+}
+
+.ml_card_freight {
+    color: #00a650;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.ml_card_title {
+    font-size: 14px;
+    color: #666666;
+    font-weight: 400;
+    line-height: 1.3;
+    margin-bottom: 8px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.ml_card_category {
+    font-size: 12px;
+    color: #999999;
+}
+
+@media (max-width: 768px) {
+    .vitrine_container_com_sidebar {
+        grid-template-columns: 1fr;
+    }
+    .sidebar_filtros {
+        position: static;
+        margin-bottom: 20px;
+    }
+}

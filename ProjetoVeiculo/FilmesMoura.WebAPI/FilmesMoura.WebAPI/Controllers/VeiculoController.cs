@@ -49,7 +49,23 @@ public class VeiculoController : ControllerBase
         if (String.IsNullOrWhiteSpace(novoVeiculo.Nome) || novoVeiculo.IdGenero == Guid.Empty)
             return BadRequest("É obrigatório que o veículo tenha nome e gênero!");
 
-        Veiculo veiculo = new Veiculo();
+        Veiculo veiculo = new Veiculo
+        {
+            Nome = novoVeiculo.Nome!,
+            Marca = novoVeiculo.Marca,
+            Modelo = novoVeiculo.Modelo,
+            Ano = novoVeiculo.Ano,
+            Preco = novoVeiculo.Preco,
+            Cor = novoVeiculo.Cor,
+            Quilometragem = novoVeiculo.Quilometragem,
+            Combustivel = novoVeiculo.Combustivel,
+            Cambio = novoVeiculo.Cambio,
+            NumeroPortas = novoVeiculo.NumeroPortas,
+            Potencia = novoVeiculo.Potencia,
+            CapacidadePassageiros = novoVeiculo.CapacidadePassageiros,
+            Descricao = novoVeiculo.Descricao,
+            IdGenero = novoVeiculo.IdGenero.ToString()
+        };
 
         if (novoVeiculo.Imagem != null && novoVeiculo.Imagem.Length > 0)
         {
@@ -72,9 +88,6 @@ public class VeiculoController : ControllerBase
             veiculo.Imagem = nomeArquivo;
         }
 
-        veiculo.IdGenero = novoVeiculo.IdGenero.ToString();
-        veiculo.Nome = novoVeiculo.Nome!;
-
         try
         {
             _veiculoRepository.Cadastrar(veiculo);
@@ -93,16 +106,43 @@ public class VeiculoController : ControllerBase
 
         if (veiculoBuscado == null)
             return NotFound("Veículo não encontrado!");
+
+        // Atualiza campos básicos se fornecidos
         if (!String.IsNullOrWhiteSpace(veiculo.Nome))
             veiculoBuscado.Nome = veiculo.Nome;
+        if (!String.IsNullOrWhiteSpace(veiculo.Marca))
+            veiculoBuscado.Marca = veiculo.Marca;
+        if (!String.IsNullOrWhiteSpace(veiculo.Modelo))
+            veiculoBuscado.Modelo = veiculo.Modelo;
+        if (veiculo.Ano.HasValue)
+            veiculoBuscado.Ano = veiculo.Ano;
+        if (veiculo.Preco.HasValue)
+            veiculoBuscado.Preco = veiculo.Preco;
+        if (!String.IsNullOrWhiteSpace(veiculo.Cor))
+            veiculoBuscado.Cor = veiculo.Cor;
+        if (veiculo.Quilometragem.HasValue)
+            veiculoBuscado.Quilometragem = veiculo.Quilometragem;
+        if (!String.IsNullOrWhiteSpace(veiculo.Combustivel))
+            veiculoBuscado.Combustivel = veiculo.Combustivel;
+        if (!String.IsNullOrWhiteSpace(veiculo.Cambio))
+            veiculoBuscado.Cambio = veiculo.Cambio;
+        if (veiculo.NumeroPortas.HasValue)
+            veiculoBuscado.NumeroPortas = veiculo.NumeroPortas;
+        if (!String.IsNullOrWhiteSpace(veiculo.Potencia))
+            veiculoBuscado.Potencia = veiculo.Potencia;
+        if (veiculo.CapacidadePassageiros.HasValue)
+            veiculoBuscado.CapacidadePassageiros = veiculo.CapacidadePassageiros;
+        if (!String.IsNullOrWhiteSpace(veiculo.Descricao))
+            veiculoBuscado.Descricao = veiculo.Descricao;
         if (veiculo.IdGenero != null && veiculo.IdGenero.ToString() != veiculoBuscado.IdGenero)
             veiculoBuscado.IdGenero = veiculo.IdGenero.ToString();
+
+        // Atualiza imagem se fornecida
         if (veiculo.Imagem != null && veiculo.Imagem.Length != 0)
         {
             var pastaRelativa = "wwwroot/imagens";
             var caminhoPasta = Path.Combine(Directory.GetCurrentDirectory(), pastaRelativa);
 
-            // Delete arquivo antigo
             if (!string.IsNullOrEmpty(veiculoBuscado.Imagem))
             {
                 var caminhoImagemAntiga = Path.Combine(caminhoPasta, veiculoBuscado.Imagem);
@@ -110,7 +150,6 @@ public class VeiculoController : ControllerBase
                     System.IO.File.Delete(caminhoImagemAntiga);
             }
 
-            // Salvar nova imagem
             var extensao = Path.GetExtension(veiculo.Imagem.FileName);
             var nomeArquivo = $"{Guid.NewGuid()}{extensao}";
 
@@ -126,23 +165,10 @@ public class VeiculoController : ControllerBase
 
             veiculoBuscado.Imagem = nomeArquivo;
         }
+
         try
         {
             _veiculoRepository.AtualizarIdUrl(id, veiculoBuscado);
-            return NoContent();
-        }
-        catch (Exception erro)
-        {
-            return BadRequest(erro.Message);
-        }
-    }
-
-    [HttpPut]
-    public IActionResult Put(Veiculo veiculo)
-    {
-        try
-        {
-            _veiculoRepository.AtualizarIdCorpo(veiculo);
             return NoContent();
         }
         catch (Exception erro)

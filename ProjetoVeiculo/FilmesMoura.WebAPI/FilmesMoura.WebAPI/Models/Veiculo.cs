@@ -19,6 +19,45 @@ public partial class Veiculo
 
     [StringLength(100)]
     [Unicode(false)]
+    public string? Marca { get; set; }
+
+    [StringLength(100)]
+    [Unicode(false)]
+    public string? Modelo { get; set; }
+
+    public int? Ano { get; set; }
+
+    [Column(TypeName = "decimal(18,2)")]
+    public decimal? Preco { get; set; }
+
+    [StringLength(50)]
+    [Unicode(false)]
+    public string? Cor { get; set; }
+
+    public int? Quilometragem { get; set; }
+
+    [StringLength(50)]
+    [Unicode(false)]
+    public string? Combustivel { get; set; }
+
+    [StringLength(50)]
+    [Unicode(false)]
+    public string? Cambio { get; set; }
+
+    public int? NumeroPortas { get; set; }
+
+    [StringLength(50)]
+    [Unicode(false)]
+    public string? Potencia { get; set; }
+
+    public int? CapacidadePassageiros { get; set; }
+
+    [StringLength(2000)]
+    [Unicode(false)]
+    public string? Descricao { get; set; }
+
+    [StringLength(100)]
+    [Unicode(false)]
     public string? Imagem { get; set; }
 
     [StringLength(40)]
