@@ -1,3 +1,5 @@
 wwwroot\imagens\2b1853af-01f1-4c27-aff3-d7ed865dd848.png
 wwwroot\imagens\899fdafc-bf88-4b06-806c-2a09e84d4739.webp
 wwwroot\imagens\8fb268e3-0b6a-4b91-8845-07f9571ebf62.webp
+wwwroot\imagens\93d701a0-463c-4b18-a5e5-6eea29bffce5.webp
+wwwroot\imagens\b0c0eeb2-8207-4802-b6cb-ba66927a07dd.webp

@@ -4,6 +4,7 @@ import Footer from "../../components/footer/Footer";
 import { useEffect, useState } from "react";
 import api, { apiHost } from "../../services/Services";
 import Swal from "sweetalert2";
+import { gerarResumo } from "../../services/IAServices";
 
 const camposIniciais = {
   nome: "", marca: "", modelo: "", ano: "", preco: "",
@@ -21,8 +22,36 @@ const CadastroVeiculo = () => {
   const [listaVeiculos, setListaVeiculos] = useState([]);
   const [listaGeneros, setListaGeneros] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [gerandoIA, setGerandoIA] = useState(false);
 
   const set = (campo) => (e) => setCampos((prev) => ({ ...prev, [campo]: e.target.value }));
+
+  const handleGerarResumoIA = async () => {
+    if (!campos.nome.trim()) {
+      return Swal.fire("Atenção!", "Preencha pelo menos o Nome do Veículo para gerar a descrição com IA.", "warning");
+    }
+    
+    setGerandoIA(true);
+    Swal.fire({
+      title: "Gerando descrição...",
+      text: "Aguarde enquanto a IA Groq formula a descrição ideal para o veículo.",
+      allowOutsideClick: false,
+      didOpen: () => {
+        Swal.showLoading();
+      }
+    });
+
+    try {
+      const resumo = await gerarResumo(campos, campos.descricao);
+      setCampos(prev => ({ ...prev, descricao: resumo }));
+      Swal.fire("Sucesso!", "Descrição gerada com sucesso pela IA!", "success");
+    } catch (error) {
+      console.error(error);
+      Swal.fire("Erro!", "Não foi possível gerar a descrição com IA.", "error");
+    } finally {
+      setGerandoIA(false);
+    }
+  };
 
   const getGeneros = async () => {
     try {
@@ -282,8 +311,33 @@ const CadastroVeiculo = () => {
                 <legend>Descrição e Mídia</legend>
                 <div className="cv_grid cv_grid_2">
                   <div className="cv_campo">
-                    <label>Descrição do Veículo</label>
-                    <textarea placeholder="Descreva o veículo em detalhes: estado de conservação, opcionais, histórico de revisões..." value={campos.descricao} onChange={set("descricao")} rows={5} />
+                    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                      <label>Descrição do Veículo</label>
+                      <button 
+                        type="button" 
+                        onClick={handleGerarResumoIA}
+                        disabled={gerandoIA}
+                        className="cv_btn_ia"
+                        style={{
+                          background: "linear-gradient(135deg, #6366f1 0%, #a855f7 100%)",
+                          color: "white",
+                          border: "none",
+                          borderRadius: "6px",
+                          padding: "5px 10px",
+                          fontSize: "0.75rem",
+                          cursor: "pointer",
+                          fontWeight: "600",
+                          marginBottom: "4px",
+                          display: "flex",
+                          alignItems: "center",
+                          gap: "4px",
+                          transition: "opacity 0.2s"
+                        }}
+                      >
+                        ✨ {gerandoIA ? "Gerando..." : "Gerar com IA"}
+                      </button>
+                    </div>
+                    <textarea placeholder="Descreva o veículo em detalhes ou use a IA para gerar uma descrição atraente..." value={campos.descricao} onChange={set("descricao")} rows={5} />
                   </div>
                   <div className="cv_campo">
                     <label>Imagem Principal</label>

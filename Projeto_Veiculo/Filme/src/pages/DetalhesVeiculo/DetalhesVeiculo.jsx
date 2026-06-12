@@ -4,6 +4,7 @@ import api, { apiHost } from "../../services/Services";
 import Header from "../../components/header/Header";
 import Footer from "../../components/footer/Footer";
 import Swal from "sweetalert2";
+import { gerarResumo } from "../../services/IAServices";
 import "./DetalhesVeiculo.css";
 
 const DetalhesVeiculo = () => {
@@ -12,6 +13,31 @@ const DetalhesVeiculo = () => {
     const [loading, setLoading] = useState(true);
     const [imagemAtiva, setImagemAtiva] = useState(null);
     const [veiculosRelacionados, setVeiculosRelacionados] = useState([]);
+    const [resumoIA, setResumoIA] = useState("");
+    const [carregandoResumo, setCarregandoResumo] = useState(false);
+
+    const handleGerarResumoIA = async () => {
+        if (!veiculo) return;
+        setCarregandoResumo(true);
+        Swal.fire({
+            title: "Gerando análise da IA...",
+            text: "Aguarde enquanto a IA analisa e resume as especificações do veículo.",
+            allowOutsideClick: false,
+            didOpen: () => {
+                Swal.showLoading();
+            }
+        });
+        try {
+            const resumo = await gerarResumo(veiculo, veiculo.descricao);
+            setResumoIA(resumo);
+            Swal.fire("Sucesso!", "Resumo gerado com sucesso pela IA!", "success");
+        } catch (error) {
+            console.error(error);
+            Swal.fire("Erro!", "Não foi possível obter o resumo da IA.", "error");
+        } finally {
+            setCarregandoResumo(false);
+        }
+    };
 
     useEffect(() => {
         const carregarDetalhes = async () => {
@@ -145,8 +171,49 @@ const DetalhesVeiculo = () => {
                         </div>
 
                         <div className="descricao_box">
-                            <h3>Descrição do Veículo</h3>
+                            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "1rem" }}>
+                                <h3 style={{ margin: 0 }}>Descrição do Veículo</h3>
+                                <button 
+                                    onClick={handleGerarResumoIA}
+                                    disabled={carregandoResumo}
+                                    className="btn_resumo_ia"
+                                    style={{
+                                        background: "linear-gradient(135deg, #6366f1 0%, #a855f7 100%)",
+                                        color: "white",
+                                        border: "none",
+                                        borderRadius: "6px",
+                                        padding: "6px 12px",
+                                        fontSize: "0.8rem",
+                                        cursor: "pointer",
+                                        fontWeight: "600",
+                                        display: "flex",
+                                        alignItems: "center",
+                                        gap: "4px",
+                                        transition: "opacity 0.2s"
+                                    }}
+                                >
+                                    ✨ {carregandoResumo ? "Gerando..." : "Resumo da IA"}
+                                </button>
+                            </div>
                             <p>{veiculo.descricao}</p>
+                            
+                            {resumoIA && (
+                                <div className="resumo_ia_container" style={{
+                                    marginTop: "1.5rem",
+                                    padding: "1.2rem",
+                                    backgroundColor: "rgba(99, 102, 241, 0.08)",
+                                    borderLeft: "4px solid #6366f1",
+                                    borderRadius: "8px",
+                                    fontSize: "0.95rem",
+                                    lineHeight: "1.6",
+                                    boxShadow: "0 4px 12px rgba(0, 0, 0, 0.1)"
+                                }}>
+                                    <h4 style={{ color: "#a855f7", margin: "0 0 0.5rem 0", display: "flex", alignItems: "center", gap: "6px", fontSize: "1rem", fontWeight: "700" }}>
+                                        🤖 Análise Inteligente da IA:
+                                    </h4>
+                                    <p style={{ whiteSpace: "pre-line", margin: 0, color: "var(--color-text-primary)" }}>{resumoIA}</p>
+                                </div>
+                            )}
                         </div>
                     </div>
 

@@ -3,6 +3,7 @@ import api, { apiHost } from "../../services/Services";
 import Header from "../../components/header/Header";
 import Footer from "../../components/footer/Footer";
 import Swal from "sweetalert2";
+import { gerarResumo } from "../../services/IAServices";
 import "./Dashboard.css";
 
 // ── Sub-componente: Painel de Visão Geral ──────────────────────────
@@ -76,8 +77,34 @@ const PainelVeiculos = () => {
     const [listaGeneros, setListaGeneros] = useState([]);
     const [loading, setLoading] = useState(true);
     const [buscaLista, setBuscaLista] = useState("");
+    const [gerandoIA, setGerandoIA] = useState(false);
 
     const set = (campo) => (e) => setCampos((p) => ({ ...p, [campo]: e.target.value }));
+
+    const handleGerarResumoIA = async () => {
+        if (!campos.nome.trim()) {
+            return Swal.fire("Atenção!", "Preencha pelo menos o Nome do Veículo para gerar a descrição com IA.", "warning");
+        }
+        setGerandoIA(true);
+        Swal.fire({
+            title: "Gerando descrição...",
+            text: "Aguarde enquanto a IA Groq formula a descrição ideal para o veículo.",
+            allowOutsideClick: false,
+            didOpen: () => {
+                Swal.showLoading();
+            }
+        });
+        try {
+            const resumo = await gerarResumo(campos, campos.descricao);
+            setCampos(prev => ({ ...prev, descricao: resumo }));
+            Swal.fire("Sucesso!", "Descrição gerada com sucesso pela IA!", "success");
+        } catch (error) {
+            console.error(error);
+            Swal.fire("Erro!", "Não foi possível gerar a descrição com IA.", "error");
+        } finally {
+            setGerandoIA(false);
+        }
+    };
 
     const carregarDados = async () => {
         try {
@@ -259,7 +286,35 @@ const PainelVeiculos = () => {
                 <fieldset className="db_fieldset">
                     <legend>Descrição e Imagem</legend>
                     <div className="db_grid db_grid_2">
-                        <div className="db_campo"><label>Descrição</label><textarea placeholder="Descreva o veículo..." value={campos.descricao} onChange={set("descricao")} rows={4} /></div>
+                        <div className="db_campo">
+                            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                                <label>Descrição</label>
+                                <button 
+                                    type="button" 
+                                    onClick={handleGerarResumoIA}
+                                    disabled={gerandoIA}
+                                    className="db_btn_ia"
+                                    style={{
+                                        background: "linear-gradient(135deg, #6366f1 0%, #a855f7 100%)",
+                                        color: "white",
+                                        border: "none",
+                                        borderRadius: "6px",
+                                        padding: "4px 8px",
+                                        fontSize: "0.75rem",
+                                        cursor: "pointer",
+                                        fontWeight: "600",
+                                        marginBottom: "4px",
+                                        display: "flex",
+                                        alignItems: "center",
+                                        gap: "4px",
+                                        transition: "opacity 0.2s"
+                                    }}
+                                >
+                                    ✨ {gerandoIA ? "Gerando..." : "Gerar com IA"}
+                                </button>
+                            </div>
+                            <textarea placeholder="Descreva o veículo..." value={campos.descricao} onChange={set("descricao")} rows={4} />
+                        </div>
                         <div className="db_campo">
                             <label>Imagem Principal</label>
                             <div className="db_upload" onClick={() => document.getElementById("db_img").click()}>
